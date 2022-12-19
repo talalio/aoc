@@ -18,7 +18,7 @@ def rearrange(procedure):
 		count += 1
 		crates = stacks[src][len(stacks[src]) - count:]
 		del stacks[src][len(stacks[src]) - count:]
-		stacks[dest].extend(reversed(crates))
+		stacks[dest].extend(crates)
 
 with open('input.txt', 'r') as f:
 	lines = f.read().splitlines()
