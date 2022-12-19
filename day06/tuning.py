@@ -1,10 +1,14 @@
 
 with open('input.txt', 'r') as f:
-	stream = f.read().splitlines()[0]
-	j = 0
-	while j < len(stream) - 4:
-		byt = stream[j:j+4]
-		if len(byt) == len(set(byt)):
-			print(j+4)
-			break
-		j += 1
+    stream = f.read().splitlines()[0]
+    som = 0
+    idx = 14
+    j = 0
+    while j < len(stream) - idx:
+        byt = stream[j:j+idx]
+        if len(byt) == len(set(byt)):
+            som = j+idx
+            break
+        j += 1
+
+    print(som)
