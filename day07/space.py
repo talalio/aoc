@@ -2,6 +2,7 @@ from pyfs import Fs, Dir, File
 
 fs = Fs()
 
+
 def parse_output(output):
     for (idx, line) in enumerate(output):
         if line.startswith('$'):
@@ -12,9 +13,7 @@ def parse_output(output):
                 fs.cd(path)
 
         else:
-            details = line.split()
-            rtype = details[0]
-            name = details[1]
+            rtype, name = line.split()
 
             if rtype == 'dir':
                 if not fs.path_exists(name):
@@ -28,4 +27,5 @@ def parse_output(output):
 with open('input.txt', 'r') as f:
     term_out = f.read().splitlines()
     parse_output(term_out)
-    print(sum(fs.root.get_dirs(100_000)))
+    # print(fs.get_dir(100_000))
+    print(fs.free_space())
